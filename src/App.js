@@ -1,26 +1,33 @@
 import "./App.css";
-import FoodItem from "./components/Food/FoodItem";
-import Greetings from "./components/Food/Greetings";
+import FoodMenu from "./components/Food/FoodMenu";
 import Header from "./components/Layout/Header";
-import Input from "./components/UI/Input";
 import Modal from "./components/UI/Modal";
+import React, { useState } from "react";
 
 import { MEALS } from "./dummyData";
+import Footer from "./components/Layout/Footer";
 
 function App() {
-  console.log(MEALS);
+  const [showCart, setShowCart] = useState();
+  const cartHandler = () => {
+    console.log("click");
+    setShowCart(null);
+  };
+  const show = () => {
+    setShowCart(true);
+  };
+
   return (
     <>
+      {showCart && <Modal hideModal={cartHandler}></Modal>}
       <Header
         src={process.env.PUBLIC_URL + "/background.jpg"}
+        altImage="BackGround Food Image"
         header="NomNom"
       />
-      <Greetings />
-      <FoodItem />
-      {/* <Modal>
-        <Input type="text" label="Test"></Input>
-      </Modal> */}
-      ;
+      <FoodMenu menuItems={MEALS} />
+      <button onClick={show}>Click</button>
+      <Footer footerText={"Dmitry Demin 2022"} />
     </>
   );
 }

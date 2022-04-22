@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Greetings from "./Greetings";
 
 import css from "./Header.module.css";
 
@@ -11,6 +12,7 @@ const Header = (props) => {
       <div className={css.image}>
         <img src={props.src} alt={props.altImage} />
       </div>
+      <Greetings />
     </>
   );
 };
