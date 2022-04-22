@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Sarpanch:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dongle&display=swap");
 
 .Footer {
   position: fixed;
@@ -6,13 +6,14 @@
   left: 0;
   right: 0;
   width: 100%;
-  height: 5rem;
+  height: 1rem;
   background-color: #202020;
   color: white;
   align-items: center;
   border-top: 1px solid #9dc6d5;
-  font-family: "Sarpanch", sans-serif;
-  padding: 2rem 2rem;
+  font-size: 0.8rem;
+  font-family: "Dongle", sans-serif;
+  padding: 0.1rem 2rem 1rem;
   box-shadow: 1px 1px 5px 2px #83c5de;
   opacity: 0;
   animation: fadeIn 2.5s ease 1.3s 1 forwards;
@@ -22,6 +23,14 @@
 .Footer .text {
   display: block;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .Footer {
+    font-size: 1.5rem;
+    height: 3rem;
+    padding: 0.6rem 2rem;
+  }
 }
 
 @keyframes fadeIn {
