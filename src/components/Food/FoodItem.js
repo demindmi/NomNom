@@ -4,27 +4,25 @@ import css from "./FoodItem.module.css";
 
 const FoodItem = (props) => {
   const counterRef = useRef();
-  // const ctx = useContext(CartContext);
+  const ctx = useContext(CartContext);
 
   const addItemHandler = (event) => {
-    console.log("hi");
     event.preventDefault();
     const amount = +counterRef.current.value;
     if (amount === 0) {
-      // console.log(ctx);
+      console.log("0 is not a lot of food");
       return false;
     }
-    // ctx.addItemCart({
-    //   mealName: props.item.mealName,
-    //   mealDesc: props.item.mealDesc,
-    //   mealCost: props.item.mealCost,
-    //   amount: amount,
-    //   // mealImage: "",
-    // });
-    // setTimeout(() => {
-    //   console.log(props.item.mealName);
-    //   console.log(ctx);
-    // }, 2000);
+    ctx.addItemCart({
+      mealName: props.item.mealName,
+      mealDesc: props.item.mealDesc,
+      mealCost: props.item.mealCost,
+      amount: amount,
+      // mealImage: "",
+    });
+    setTimeout(() => {
+      // console.log(ctx);
+    }, 2000);
   };
 
   return (

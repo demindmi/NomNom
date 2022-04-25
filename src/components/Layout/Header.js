@@ -8,11 +8,14 @@ const Header = (props) => {
   return (
     <>
       <div className={css.Header}>
-        <h1>{props.header}</h1>
-        <HeaderCartButton />
+        <h1>NomNom</h1>
+        <HeaderCartButton onClick={props.onClick} />
       </div>
       <div className={css.image}>
-        <img src={props.src} alt={props.altImage} />
+        <img
+          src={process.env.PUBLIC_URL + "/background.jpg"}
+          alt="BackGround Food"
+        />
       </div>
       <Greetings />
     </>

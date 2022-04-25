@@ -5,12 +5,7 @@ import FoodItem from "./FoodItem";
 import css from "./FoodMenu.module.css";
 const FoodMenu = (props) => {
   const menuItems = props.menuItems.map((menuItem) => (
-    <FoodItem
-      key={`${menuItem.mealName.replace(/\s/g, "")}${menuItem.mealDesc.replace(
-        /\s/g,
-        ""
-      )}`.substring(0, 10)}
-      item={menuItem}></FoodItem>
+    <FoodItem key={menuItem.id} item={menuItem}></FoodItem>
   ));
 
   return (
