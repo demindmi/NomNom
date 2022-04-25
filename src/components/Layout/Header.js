@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Greetings from "./Greetings";
 
 import css from "./Header.module.css";

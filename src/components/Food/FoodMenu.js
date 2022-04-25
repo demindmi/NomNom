@@ -3,7 +3,6 @@ import Card from "../UI/Card";
 import FoodItem from "./FoodItem";
 
 import css from "./FoodMenu.module.css";
-
 const FoodMenu = (props) => {
   const menuItems = props.menuItems.map((menuItem) => (
     <FoodItem
@@ -13,6 +12,7 @@ const FoodMenu = (props) => {
       )}`.substring(0, 10)}
       item={menuItem}></FoodItem>
   ));
+
   return (
     <section className={css.meals}>
       <Card>

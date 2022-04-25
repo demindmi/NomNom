@@ -3,6 +3,7 @@ import FoodMenu from "./components/Food/FoodMenu";
 import Header from "./components/Layout/Header";
 import Modal from "./components/UI/Modal";
 import React, { useState } from "react";
+// import CartProvider from "./global/CartContext";
 
 import { MEALS } from "./dummyData";
 import Footer from "./components/Layout/Footer";
@@ -18,6 +19,7 @@ function App() {
   };
 
   return (
+    // <CartProvider.Provider>
     <>
       {showCart && <Modal hideModal={cartHandler}></Modal>}
       <Header
@@ -29,6 +31,7 @@ function App() {
       <button onClick={show}>Click</button>
       <Footer footerText={"Dmitry Demin 2022"} />
     </>
+    // </CartProvider.Provider>
   );
 }
 export default App;
