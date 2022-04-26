@@ -17,6 +17,7 @@ const FoodItem = (props) => {
       mealName: props.item.mealName,
       mealDesc: props.item.mealDesc,
       mealCost: props.item.mealCost,
+      id: props.item.id,
       amount: amount,
       // mealImage: "",
     });

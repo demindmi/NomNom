@@ -8,34 +8,32 @@ const defaultCartState = {
 };
 
 const cartReducer = (state, action) => {
-  let UpdatedAmount; // Variable to hold how much do all items in the cart cost
-  let updatedItems; // Variable to hold what needs to be updated in the cart
+  console.log(state);
+  let updatedTotalAmount; // Variable to hold how much do all items in the cart cost
+  let updatedItem; // Variable to hold the item to be updated in the cary
+  let updatedItems = [...state.items]; // getting all items from current items in the state list and assigning them to updatedItems variable
+  console.log(updatedItems);
+  const itemInCartIndex = state.items.findIndex(
+    // Checking if item with this id (passed via action) has the same ID as something in the current cart (state)
+    (item) => item.id === action.item.id
+  );
+  const itemInCart = state.items[itemInCartIndex]; // if ID's matched, we use the found index to locate this item in the array of items
+  console.log(itemInCart);
 
   // switch statement to determine what action to proceed with
   switch (action.type) {
     //  if we want to add item
     case "ADD_ITEM":
-      // getting new total cost for cart items
-      UpdatedAmount = action.item.mealCost * action.item.amount;
-
-      // Checking if item with this id (passed via action) has the same ID as something in the current cart (state)
-      const itemInCartIndex = state.items.findIndex(
-        (item) => item.id === action.item.id
-      );
-
-      // if ID's matched, we use the found index to locate this item in the array of items
-      const itemInCart = state.items[itemInCartIndex];
-
-      // if such item is present:
+      // getting new total cost for cart items by multiplying number of just added items by their cost
+      updatedTotalAmount =
+        state.totalAmount + action.item.mealCost * action.item.amount;
+      // if we have item with this ID present in the cart:
       if (itemInCart) {
         // updating the item amount
-        const updatedItem = {
+        updatedItem = {
           ...itemInCart, // ! duplicating object using spread operator
           amount: itemInCart.amount + action.item.amount, // updating amount of said item
         };
-
-        // getting all items from current items in the state list and assigning them to updatedItems variable
-        updatedItems = [...state.items];
         // using the same index we found before, we are updating the quantity of the items in the cart
         updatedItems[itemInCartIndex] = updatedItem;
       } else {
@@ -46,12 +44,22 @@ const cartReducer = (state, action) => {
 
     // If we want to remove item
     case "REMOVE_ITEM":
-      UpdatedAmount = action.item.mealCost * action.item.amount;
-      const UpdatedItems = state.items.concat(action.item);
-      return {
-        items: UpdatedItems,
-        totalAmount: UpdatedAmount,
-      };
+      // we subtract from total amount in the cart amount that this item currently has
+      updatedTotalAmount = state.totalAmount - itemInCart.amount;
+
+      if (itemInCart.amount === 1) {
+        console.log("one");
+        updatedItems = state.items.filter((item) => item.id !== action.item.id);
+      } else {
+        updatedItem = {
+          ...itemInCart, // ! duplicating object using spread operator
+          amount: itemInCart.amount - 1, // updating amount of said item
+        };
+        updatedItems = [...state.items];
+        updatedItems[itemInCartIndex] = updatedItem;
+      }
+      break;
+
     // if noon of the cases match, we simply return current state as is
     default:
       return defaultCartState;
@@ -59,7 +67,7 @@ const cartReducer = (state, action) => {
 
   return {
     items: updatedItems,
-    totalAmount: UpdatedAmount,
+    totalAmount: updatedTotalAmount,
   };
 };
 
@@ -84,6 +92,7 @@ const CartProvider = (props) => {
     addItemCart: addItemCartHandler,
     removeItemCart: removeItemCartHandler,
   };
+
   return (
     <CartContext.Provider value={contextOfCart}>
       {props.children}

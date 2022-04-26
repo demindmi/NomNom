@@ -8,6 +8,3 @@ const CartContext = React.createContext({
 });
 
 export default CartContext;
-
-/* sdfs */
-// hello
