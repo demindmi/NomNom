@@ -20,7 +20,7 @@ const FoodItemForm = (props) => {
   return (
     <form className={css.form}>
       <div className={css.Input}>
-        <label>AMOUNT</label>
+        <label>Amount:</label>
         <input
           defaultValue={"0"}
           min="0"
