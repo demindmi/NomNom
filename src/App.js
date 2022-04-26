@@ -1,7 +1,7 @@
 import "./App.css";
 import FoodMenu from "./components/Food/FoodMenu";
 import Header from "./components/Layout/Header";
-import Modal from "./components/UI/Modal";
+import Cart from "./components/Cart/Cart";
 import React, { useState } from "react";
 import CartProvider from "./global/CartProvider";
 
@@ -20,7 +20,7 @@ function App() {
 
   return (
     <CartProvider>
-      {showCart && <Modal hideModal={hideCartHandler}></Modal>}
+      {showCart && <Cart hideModal={hideCartHandler}></Cart>}
       <Header onClick={showCartHandler} />
       <FoodMenu menuItems={MEALS} />
       <Footer footerText={"Dmitry Demin 2022"} />

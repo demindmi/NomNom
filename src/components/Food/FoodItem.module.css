@@ -14,49 +14,13 @@
   font-style: italic;
 }
 
+.FoodItem span {
+  color: #282a2c;
+}
+
 .cost {
   margin-top: 0.25rem;
   font-weight: bold;
-  color: #2184a8;
+  color: #6534c7;
   font-size: 1.25rem;
-}
-
-.form {
-  text-align: right;
-}
-
-.form button {
-  font: inherit;
-  cursor: pointer;
-  background-color: #303335;
-  border: 1px solid #71d2f6;
-  color: white;
-  padding: 0.25rem 2rem;
-  border-radius: 10px;
-  font-weight: bold;
-}
-
-.form button:hover,
-.form button:active {
-  background-color: #2184a8;
-  border-color: #214958;
-}
-
-.Input {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.Input label {
-  font-weight: bold;
-  margin-right: 1rem;
-}
-
-.Input input {
-  width: 3rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font: inherit;
-  padding-left: 0.5rem;
 }

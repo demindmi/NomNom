@@ -1,0 +1,78 @@
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #512062;
+  padding: 1rem 0;
+  margin: 1rem 0;
+}
+
+.cartItem h2 {
+  margin: 0 0 0.5rem 0;
+  color: #363636;
+}
+
+.summary {
+  width: 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mealCost {
+  font-weight: bold;
+  color: #1b3768;
+}
+
+.amount {
+  font-weight: bold;
+  border: 1px solid #ccc;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  color: #363636;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .actions {
+    flex-direction: row;
+  }
+}
+
+.cartItem button {
+  font: inherit;
+  font-weight: bold;
+  color: white;
+  font-size: 1.25rem;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(101deg, #3799c3, #6d2e84, #3f368e);
+  background-origin: border-box;
+  border: none;
+  background-clip: content-box, border-box;
+  width: 3rem;
+  text-align: center;
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: 1rem;
+  margin: 0.25rem;
+}
+
+.cartItem button:hover,
+.cartItem button:active {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    circular-gradient(-4deg, #5d2f7c, #f7f7f7);
+  box-shadow: 0px 25px 2px #fff inset;
+  transition: box-shadow 0.2s ease-in-out;
+  color: rgb(39, 75, 118);
+}

@@ -1,45 +1,43 @@
 import { useContext, useEffect, useState } from "react";
 
-// import CartContext from "../../store/cart-context";
+import CartContext from "../../global/CartContext";
 import css from "./HeaderCartButton.module.css";
+import { FaShoppingCart } from "react-icons/fa";
 
 const HeaderCartButton = (props) => {
-  const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
-  // const cartCtx = useContext(CartContext);
+  const [btnHover, setHoverOn] = useState(false);
+  const cartCtx = useContext(CartContext);
 
-  // const { items } = cartCtx;
+  const cartBadge = <FaShoppingCart className={css.icon} />;
 
-  // const numberOfCartItems = items.reduce((curNumber, item) => {
-  //   return curNumber + item.amount;
-  // }, 0);
+  const { items } = cartCtx;
 
-  // const btnClasses = `${css.button} ${btnIsHighlighted ? css.bump : ""}`;
+  const itemsTotal = items.reduce((num, item) => {
+    return num + item.amount;
+  }, 0);
 
-  // useEffect(() => {
-  //   if (items.length === 0) {
-  //     return;
-  //   }
-  //   setBtnIsHighlighted(true);
+  const btnClasses = `${css.button} ${btnHover ? css.bump : ""}`;
 
-  //   const timer = setTimeout(() => {
-  //     setBtnIsHighlighted(false);
-  //   }, 300);
+  useEffect(() => {
+    if (items.length === 0) {
+      return;
+    }
+    setHoverOn(true);
 
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, [items]);
+    const timer = setTimeout(() => {
+      setHoverOn(false);
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [items]);
 
   return (
-    <button onClick={props.onClick}>
-      <span className={css.icon}>
-        <img
-          className={css.icon}
-          src={process.env.PUBLIC_URL + "/shopping-cart.png"}
-          alt="cart-icon"></img>
-      </span>
-      <span>Your Cart</span>
-      <span className={css.badge}>5</span>
+    <button onClick={props.onClick} className={btnClasses}>
+      <span className={css.icon}>{cartBadge}</span>
+      <span className={css.span}>Your Cart</span>
+      <span className={css.badge}>{itemsTotal}</span>
     </button>
   );
 };

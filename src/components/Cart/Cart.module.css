@@ -1,0 +1,111 @@
+.cartItem {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 20rem;
+  overflow: auto;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.actions {
+  text-align: right;
+}
+
+.actions button {
+  transition: all 0.3 ease;
+  font: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  /* border: none; */
+  margin-left: 1rem;
+  border: solid 3px transparent;
+}
+
+.actions .button_alt {
+  transition: all 0.3 ease;
+  font-weight: bold;
+  color: rgb(48, 48, 49);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(4deg, #202526, #3f2844, #15161a);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #fff inset;
+  border: solid 3px transparent;
+}
+
+.actions .button_alt:hover {
+  transition: box-shadow 0.25s ease-in-out;
+  font-weight: bold;
+  color: white;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(4deg, #202526, #3f2844, #15161a);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: none;
+}
+
+.actions .button {
+  transition: box-shadow 0.25s ease-in-out;
+  box-shadow: none;
+  font-weight: bold;
+  color: rgb(227, 227, 228);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(4deg, #202526, #3f2844, #15161a);
+  background-origin: border-box;
+  border: solid 3px transparent;
+  background-clip: content-box, border-box;
+}
+
+.actions .button:hover {
+  box-shadow: 2px 1000px 1px #fff inset;
+  color: #1f1d31;
+}
+
+.button_alt:active,
+.button:active {
+  animation: bump 300ms ease-out;
+}
+
+@keyframes bump {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(0.98);
+  }
+  30% {
+    transform: scale(1.01);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.empty {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  padding: 2rem 0;
+}

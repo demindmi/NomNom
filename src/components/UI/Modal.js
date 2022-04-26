@@ -5,25 +5,25 @@ import ReactDOM from "react-dom";
 import css from "./Modal.module.css";
 
 const BackDrop = (props) => {
-  return <div className={css.backdrop} onClick={props.hideModal}></div>;
+  return <div className={css.backdrop} onClick={props.onClick}></div>;
 };
 
 const ModalOverlay = (props) => {
-  return <Card className={css.Modal}>hi</Card>;
+  return <Card className={css.Modal}>{props.children}</Card>;
 };
 
 const Modal = (props) => {
   return (
-    <div>
+    <>
       {ReactDOM.createPortal(
-        <BackDrop hideModal={props.hideModal} />,
+        <BackDrop onClick={props.onClick} />,
         document.getElementById("backdrop-root")
       )}
       {ReactDOM.createPortal(
-        <ModalOverlay />,
+        <ModalOverlay>{props.children}</ModalOverlay>,
         document.getElementById("modal-root")
       )}
-    </div>
+    </>
   );
 };
 
