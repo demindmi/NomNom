@@ -12,6 +12,7 @@
 
 .description {
   font-style: italic;
+  padding-right: 0.2rem;
 }
 
 .FoodItem span {
