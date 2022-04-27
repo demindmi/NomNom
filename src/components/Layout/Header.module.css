@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Sarpanch:wght@700&display=swap");
 
 .Header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;

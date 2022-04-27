@@ -10,7 +10,7 @@ const FoodItem = (props) => {
     ctx.addItemCart({
       mealName: props.item.mealName,
       mealDesc: props.item.mealDesc,
-      mealCost: props.item.mealCost,
+      mealCost: props.item.mealCost.toFixed(2),
       id: props.item.id,
       amount: amount,
       // mealImage: "",
@@ -20,13 +20,14 @@ const FoodItem = (props) => {
   return (
     <li className={css.FoodItem}>
       <div>
-        <h3>{props.item.mealName} </h3>
+        <h3>
+          {props.item.mealName}{" "}
+          <span className={css.cost}>
+            <span className={css.dollar}>&nbsp;$</span>
+            {props.item.mealCost.toFixed(2)}
+          </span>
+        </h3>
         <div className={css.description}> {props.item.mealDesc}</div>
-        <div className={css.cost}>
-          {" "}
-          <span>$ </span>
-          {props.item.mealCost}
-        </div>
         {/* {props.item.mealImage} */}
       </div>
       <FoodItemForm addItemHandler={addToCartHandler} />

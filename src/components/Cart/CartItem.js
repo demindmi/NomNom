@@ -1,7 +1,7 @@
 import css from "./CartItem.module.css";
 
 const CartItem = (props) => {
-  const price = props.mealCost.toFixed(2);
+  const price = props.mealCost;
 
   return (
     <li className={css.cartItem}>

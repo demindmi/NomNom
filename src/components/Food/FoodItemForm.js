@@ -1,39 +1,48 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import css from "./FoodItemForm.module.css";
 
 const FoodItemForm = (props) => {
+  const [formValid, setFormValid] = useState(false);
   const counterRef = useRef();
 
-  const addItemHandler = (event) => {
-    event.preventDefault();
-    const amount = +counterRef.current.value; // converting to number
-
-    // checking if amount is 0, than ignore
-    if (amount === 0) {
-      return false;
+  const onChangeHandler = () => {
+    if (counterRef.current.value > 0) {
+      setFormValid(true);
+    } else {
+      setFormValid(false);
     }
-    //calling on parent add method
-    props.addItemHandler(amount);
+  };
+
+  const addItemHandler = (event) => {
+    const amount = +counterRef.current.value;
+    event.preventDefault();
+    if (amount > 0) {
+      props.addItemHandler(amount);
+    }
   };
 
   return (
     <form className={css.form}>
       <div className={css.Input}>
-        <label>Amount:</label>
+        <label>AMOUNT</label>
         <input
-          defaultValue={"0"}
+          placeholder="0"
           min="0"
           max="5"
           type="number"
           ref={counterRef}
+          onChange={onChangeHandler}
         />
       </div>
-      <button type="submit" onClick={addItemHandler}>
+      <button
+        type="submit"
+        disabled={!formValid}
+        className={formValid ? css.enabled : ""}
+        onClick={addItemHandler}>
         ADD ITEM
       </button>
     </form>
   );
 };
-
 export default FoodItemForm;

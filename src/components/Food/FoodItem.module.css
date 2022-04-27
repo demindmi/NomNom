@@ -1,6 +1,7 @@
 .FoodItem {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
   margin: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #ccc;
@@ -8,20 +9,54 @@
 
 .FoodItem h3 {
   margin: 0 0 0.25rem 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .description {
+  font-size: 0.9rem;
   font-style: italic;
   padding-right: 0.2rem;
-}
-
-.FoodItem span {
-  color: #282a2c;
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .cost {
-  margin-top: 0.25rem;
   font-weight: bold;
-  color: #6534c7;
-  font-size: 1.25rem;
+  font-size: 1rem;
+  /* color: #bd34c7; */
+}
+
+.dollar {
+  font-weight: 500;
+  color: #bd34c7;
+  margin-right: 0.1rem;
+}
+
+@media (min-width: 768px) {
+  .FoodItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .cost {
+    /* display: block; */
+    margin-top: 0.25rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .FoodItem h3 {
+    justify-content: auto;
+    display: inline-block;
+  }
+
+  .description {
+    margin-top: 0.7rem;
+    margin-bottom: 0.6rem;
+  }
 }

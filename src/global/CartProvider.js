@@ -105,5 +105,3 @@ const CartProvider = (props) => {
 };
 
 export default CartProvider;
-
-// value = { contextOfCart };

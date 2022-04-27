@@ -13,9 +13,9 @@ const Cart = (props) => {
   useEffect(() => {
     const notEmpty = total > 0;
     if (notEmpty) {
-      setCartIsEmpty(true);
-    } else {
       setCartIsEmpty(false);
+    } else {
+      setCartIsEmpty(true);
     }
   }, [total]);
 
@@ -32,7 +32,7 @@ const Cart = (props) => {
   };
 
   const cartItems = (
-    <ul className={css.cartItem}>
+    <ul className={`${css.cartItem}`}>
       {ctx.items.map((item) => (
         <CartItem
           key={item.id}
@@ -48,9 +48,9 @@ const Cart = (props) => {
 
   return (
     <Modal onClose={props.hideModal}>
-      {cartItems}
-      {cartIsEmpty && (
+      {!cartIsEmpty && (
         <>
+          {cartItems}
           <div className={css.total}>
             <span>Total Amount</span>
             <span>${total}</span>
@@ -65,7 +65,7 @@ const Cart = (props) => {
           </div>
         </>
       )}
-      {!cartIsEmpty && (
+      {cartIsEmpty && (
         <>
           <div className={css.empty}>
             <span>Your cart is empty :(</span>

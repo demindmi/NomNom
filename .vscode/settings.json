@@ -1,3 +1,27 @@
 {
-  "cSpell.words": ["Maki"]
+  "cSpell.words": ["Maki"],
+  "cSpell.ignoreWords": ["nomnoms"],
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#185dde",
+    "activityBar.activeBorder": "#730c30",
+    "activityBar.background": "#185dde",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "statusBar.background": "#134ab0",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#185dde",
+    "statusBarItem.remoteBackground": "#134ab0",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#134ab0",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#134ab099",
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "statusBar.debuggingBackground": "#b07913",
+    "statusBar.debuggingForeground": "#e7e7e7",
+    "editorGroup.border": "#185dde",
+    "tab.activeBorder": "#185dde",
+    "activityBarBadge.background": "#730c30",
+    "activityBarBadge.foreground": "#e7e7e7"
+  },
+  "peacock.color": "#134ab0"
 }

@@ -1,8 +1,8 @@
 .cartItem {
   list-style: none;
   margin: 0;
-  padding: 0;
-  max-height: 20rem;
+  padding: 0.5rem;
+  max-height: 27rem;
   overflow: auto;
 }
 
@@ -107,7 +107,7 @@
   text-align: center;
   font-size: 2rem;
   font-weight: 500;
-  padding: 2rem 0;
+  padding: 6rem 0;
 }
 
 @media (min-width: 768px) {
@@ -129,5 +129,14 @@
     /* border: none; */
     border: solid 3px transparent;
     width: 20%;
+  }
+
+  .cartItem {
+    padding: 0.7rem;
+    max-height: 23rem;
+  }
+
+  .empty {
+    padding: 2rem 0;
   }
 }

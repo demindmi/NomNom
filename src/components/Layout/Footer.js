@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import css from "./Footer.module.css";
 
 const Footer = (props) => {
-  const [paneOpen, setPaneOpen] = useState();
-
-  const footerHandler = () => {
-    setPaneOpen(true);
-  };
+  // const [paneOpen, setPaneOpen] = useState();
+  // const footerHandler = () => {
+  //   setPaneOpen(true);
+  // };
 
   return (
     <>
