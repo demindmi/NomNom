@@ -11,10 +11,10 @@
 .Modal {
   position: fixed;
   top: 20vh;
-  left: 23%;
-  width: 53%;
+  left: 5%;
+  width: 90%;
+  padding: 0.5rem;
   background-color: white;
-  padding: 1rem;
   border-radius: 14px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 30;
@@ -22,7 +22,9 @@
 }
 
 @media (min-width: 768px) {
-  .modal {
+  .Modal {
+    padding: 1rem;
+    top: 20vh;
     width: 40rem;
     left: calc(50% - 20rem);
   }
