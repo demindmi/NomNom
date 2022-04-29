@@ -1,10 +1,11 @@
 import React from "react";
 import Card from "../UI/Card";
 import FoodItem from "./FoodItem";
-
 import css from "./FoodMenu.module.css";
-const FoodMenu = (props) => {
-  const menuItems = props.menuItems.map((menuItem) => (
+import { MEALS } from "../../global/dummyData";
+
+const FoodMenu = () => {
+  const menuItems = MEALS.map((menuItem) => (
     <FoodItem key={menuItem.id} item={menuItem}></FoodItem>
   ));
 

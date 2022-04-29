@@ -4,8 +4,6 @@ import Header from "./components/Layout/Header";
 import Cart from "./components/Cart/Cart";
 import React, { useState } from "react";
 import CartProvider from "./global/CartProvider";
-
-import { MEALS } from "./dummyData";
 import Footer from "./components/Layout/Footer";
 
 function App() {
@@ -22,7 +20,7 @@ function App() {
     <CartProvider>
       {showCart && <Cart hideModal={hideCartHandler}></Cart>}
       <Header onClick={showCartHandler} />
-      <FoodMenu menuItems={MEALS} />
+      <FoodMenu />
       <Footer footerText={"Dmitry Demin 2022"} />
     </CartProvider>
   );
