@@ -10,9 +10,9 @@
 
 .Modal {
   position: fixed;
-  top: 3vh;
-  left: 2%;
-  width: 96%;
+  top: 15vh;
+  left: 5%;
+  width: 90%;
   padding: 0.5rem;
   background-color: white;
   border-radius: 14px;

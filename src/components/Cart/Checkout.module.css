@@ -1,23 +1,36 @@
-.cartItem {
-  list-style: none;
-  margin: 0;
-  padding: 0.5rem;
-  max-height: 19rem;
+.form {
+  margin: 1rem 0;
+  height: 20rem;
+  max-height: 22rem;
   overflow: auto;
 }
 
-.total {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.control {
+  margin-bottom: 0.5rem;
+}
+
+.control label {
   font-weight: bold;
-  font-size: 1rem;
-  margin: 1rem 0;
-  padding: 0 20px;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.control input {
+  font: inherit;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.control p {
+  margin-top: 0;
 }
 
 .actions {
-  text-align: right;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 
 .actions button {
@@ -29,11 +42,6 @@
   border-radius: 5px;
   margin-bottom: 0.4rem;
   width: 100%;
-  border: solid 3px transparent;
-}
-
-.actions .button_alt {
-  transition: all 0.3 ease;
   font-weight: bold;
   color: rgb(48, 48, 49);
   background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
@@ -44,7 +52,8 @@
   border: solid 3px transparent;
 }
 
-.actions .button_alt:hover {
+.actions button:hover,
+.actions button:active {
   transition: box-shadow 0.25s ease-in-out;
   font-weight: bold;
   color: white;
@@ -55,7 +64,7 @@
   box-shadow: none;
 }
 
-.actions .button {
+.actions .submit {
   transition: box-shadow 0.25s ease-in-out;
   box-shadow: none;
   font-weight: bold;
@@ -67,51 +76,22 @@
   background-clip: content-box, border-box;
 }
 
-.actions .button:hover {
+.actions .submit:hover,
+.actions .submit:active {
   box-shadow: 2px 1000px 1px #fff inset;
   color: #1f1d31;
 }
 
-.button_alt:active,
-.button:active {
-  animation: bump 300ms ease-out;
+.invalid label {
+  color: #b02638;
 }
 
-@keyframes bump {
-  0% {
-    transform: scale(1);
-  }
-  10% {
-    transform: scale(0.98);
-  }
-  30% {
-    transform: scale(1.01);
-  }
-  50% {
-    transform: scale(1.03);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.empty {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 500;
-  padding: 6rem 0;
+.invalid input {
+  border-color: #b61429;
+  background-color: #ffeff1;
 }
 
 @media (min-width: 768px) {
-  .total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin: 1rem 0;
-  }
-
   .actions button {
     cursor: pointer;
     background-color: transparent;
@@ -121,14 +101,5 @@
     /* border: none; */
     border: solid 3px transparent;
     width: 20%;
-  }
-
-  .cartItem {
-    padding: 0.7rem;
-    max-height: 23rem;
-  }
-
-  .empty {
-    padding: 2rem 0;
   }
 }

@@ -24,8 +24,7 @@ const cartReducer = (state, action) => {
       );
       const itemInCart = state.items[itemInCartIndex]; // if ID's matched, we use the found index to locate this item in the array of items
       // getting new total cost for cart items by multiplying number of just added items by their cost
-      updatedTotalAmount =
-        state.totalAmount + action.item.mealCost * action.item.amount;
+      updatedTotalAmount = state.totalAmount + action.item.mealCost * action.item.amount;
       // if we have item with this ID present in the cart:
       if (itemInCart) {
         // updating the item amount
@@ -64,9 +63,12 @@ const cartReducer = (state, action) => {
       }
       break;
 
+    case "CLEAR":
+      return defaultCartState;
+
     // if noon of the cases match, we simply return current state as is
     default:
-      return defaultCartState;
+      return state;
   }
 
   return {
@@ -77,10 +79,7 @@ const cartReducer = (state, action) => {
 
 //--------------------------------------------//
 const CartProvider = (props) => {
-  const [cartState, dispatchCartAction] = useReducer(
-    cartReducer,
-    defaultCartState
-  );
+  const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState);
 
   const addItemCartHandler = (item) => {
     dispatchCartAction({ type: "ADD_ITEM", item: item });
@@ -90,18 +89,19 @@ const CartProvider = (props) => {
     dispatchCartAction({ type: "REMOVE_ITEM", id: id });
   };
 
+  const clearCartHandler = () => {
+    dispatchCartAction({ type: "CLEAR" });
+  };
+
   const contextOfCart = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItemCart: addItemCartHandler,
     removeItemCart: removeItemCartHandler,
+    clearCart: clearCartHandler,
   };
 
-  return (
-    <CartContext.Provider value={contextOfCart}>
-      {props.children}
-    </CartContext.Provider>
-  );
+  return <CartContext.Provider value={contextOfCart}>{props.children}</CartContext.Provider>;
 };
 
 export default CartProvider;

@@ -20,7 +20,7 @@ const Modal = (props) => {
         document.getElementById("backdrop-root")
       )}
       {ReactDOM.createPortal(
-        <ModalOverlay>{props.children}</ModalOverlay>,
+        <ModalOverlay onClick={props.onClick}>{props.children}</ModalOverlay>,
         document.getElementById("modal-root")
       )}
     </>
